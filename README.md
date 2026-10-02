@@ -12,40 +12,12 @@
 ![Tools](https://img.shields.io/badge/Tools-OWASP%20ZAP%20%7C%20ExifTool%20%7C%20qpdf-2563eb?style=for-the-badge)
 ![Scope](https://img.shields.io/badge/Scope-Authorization%20Required-0f766e?style=for-the-badge)
 
-**Prepared by:** `[Your Name]`  
-**Assessment window:** `[Insert actual dates]`  
-**Version:** `1.0`
+**Prepared by:** `ORES MWIJAGE OSCAR`  
 
 </div>
 
 ---
 
-> [!IMPORTANT]
-> **Training example — not verified findings.** This README is a professionally formatted report template. Any sample findings, evidence IDs, dates, and ratings are illustrative only. They do **not** assert that vulnerabilities exist on the live target. Replace placeholders only with evidence gathered within the written authorization. Do not include real patient records, credentials, employee salary details, or confidential shareholder information in this public repository.
-
-## 📑 Contents
-
-- [1. Executive Summary](#-1-executive-summary)
-- [2. Assessment Objectives](#-2-assessment-objectives)
-- [3. Scope and Rules of Engagement](#-3-scope-and-rules-of-engagement)
-- [4. Assessment Environment and Tools](#-4-assessment-environment-and-tools)
-- [5. Methodology](#-5-methodology)
-- [6. M1 — Initial Access and Web Assessment](#-6-m1--initial-access-and-web-assessment)
-- [7. M2 — PDF Encryption Analysis](#-7-m2--pdf-encryption-analysis)
-- [8. M3 — Further Data Exposure Assessment](#-8-m3--further-data-exposure-assessment)
-- [9. M4 — Reporting and Deliverables](#-9-m4--reporting-and-deliverables)
-- [10. Findings Register](#-10-findings-register)
-- [11. Risk Rating Method](#-11-risk-rating-method)
-- [12. Remediation Roadmap](#-12-remediation-roadmap)
-- [13. Evidence Handling](#-13-evidence-handling)
-- [14. Limitations](#-14-limitations)
-- [15. Conclusion](#-15-conclusion)
-- [16. Repository Layout](#-16-repository-layout)
-- [17. Reproducing the PDF Checks](#-17-reproducing-the-pdf-checks)
-- [18. Responsible Testing](#-18-responsible-testing)
-- [19. Final Submission Checklist](#-19-final-submission-checklist)
-
----
 
 ## 🧭 1. Executive Summary
 
@@ -90,9 +62,8 @@ The objectives of the exercise are to:
 | Assessment approach | Black-box |
 | Assessment focus | Web application and approved PDF exercise files |
 | Authorization | Must be confirmed from the written rules of engagement |
-| Assessment dates | `[Insert actual dates]` |
 
-The target URL is reproduced from the assignment. This README does not independently verify the domain's ownership, current availability, or authorization to test it.
+
 
 ### 3.2 In-scope activities
 
@@ -189,19 +160,7 @@ Review permitted web entry points and identify potential security weaknesses thr
 - Inspect relevant response headers and supporting evidence.
 - Capture appropriately redacted screenshots or records.
 
-### Results
 
-**Actual result:** `[Insert observations supported by your ZAP evidence]`
-
-No specific live-site vulnerability is asserted by this template. A scanner alert is an indication requiring interpretation; it is not automatically a confirmed vulnerability.
-
-### Evidence checklist
-
-- [ ] ZAP alert details recorded.
-- [ ] Affected URL confirmed to be in scope.
-- [ ] Supporting request/response reviewed.
-- [ ] Alert validation status recorded.
-- [ ] Screenshots redacted and stored safely.
 
 ## 🔐 7. M2 — PDF Encryption Analysis
 
@@ -215,16 +174,15 @@ Inspect the properties and encryption configuration of approved PDF exercise fil
 - ExifTool
 - `qpdf`
 
-### Example inspection commands
+### inspection commands
 
 ```bash
-pdfinfo sample.pdf
-exiftool sample.pdf
-qpdf --is-encrypted sample.pdf
-qpdf --show-encryption sample.pdf
+pdfinfo pformat.pdf
+exiftool pformat.pdf
+qpdf --is-encrypted pformart.pdf
+qpdf --show-encryption pformat.pdf
 ```
 
-Replace `sample.pdf` with the actual filename of an approved exercise file.
 
 ### How to interpret the output
 
@@ -239,23 +197,6 @@ For `qpdf --is-encrypted`, exit status `0` indicates an encrypted PDF and exit s
 
 Encryption status alone does not establish whether a document is secure. The sensitivity of its contents, encryption configuration, key handling, and access controls are also relevant.
 
-### Results register
-
-| File | Encryption status | Evidence reference | Conclusion |
-|---|---|---|---|
-| `[Approved PDF 1]` | `[Observed result]` | `[Evidence ID]` | `[Evidence-based conclusion]` |
-| `[Approved PDF 2]` | `[Observed result]` | `[Evidence ID]` | `[Evidence-based conclusion]` |
-| `[Approved PDF 3]` | `[Observed result]` | `[Evidence ID]` | `[Evidence-based conclusion]` |
-
-These are placeholders. Enter actual filenames and observed results; do not assume all PDFs use the same encryption method.
-
-### Evidence checklist
-
-- [ ] PDF properties captured.
-- [ ] Metadata output saved.
-- [ ] Encryption output saved.
-- [ ] File source and authorization recorded.
-- [ ] Passwords and confidential document contents excluded from public evidence.
 
 ## 🗂️ 8. M3 — Further Data Exposure Assessment
 
@@ -286,7 +227,6 @@ Record the outcome accurately:
 - **Not found:** The permitted test was completed, but no exposure was identified in the resources examined.
 - **Not tested:** Required authorized files, access, or evidence were unavailable.
 
-If a controlled exercise confirms exposure, record the file or resource identifier, access-control condition, potential impact, and a redacted evidence reference. Avoid reproducing real personal or financial details.
 
 ### Recommended controls
 
@@ -316,21 +256,7 @@ Each finding should include:
 8. Recommended remediation.
 9. Retest result, where applicable.
 
-Do not label an unverified alert as a confirmed vulnerability. Mark tests that were not performed as **Not tested**.
 
-## 📋 10. Findings Register
-
-> [!NOTE]
-> The entries below are **reporting examples only**, not actual findings about the target. Replace or remove them according to verified evidence.
-
-### F-01 — Security Header Configuration Review
-
-| Field | Value |
-|---|---|
-| Severity | Pending validation |
-| Asset | `[Verified in-scope URL]` |
-| Evidence ID | `[Evidence ID]` |
-| Status | Illustrative example; not verified |
 
 **Description:** In a hypothetical scenario, an HTTP response omits a security header that may be appropriate for the application.
 
@@ -340,12 +266,6 @@ Do not label an unverified alert as a confirmed vulnerability. Mark tests that w
 
 ### F-02 — Passive Scanner Alert Requiring Validation
 
-| Field | Value |
-|---|---|
-| Severity | Pending validation |
-| Asset | `[Verified in-scope URL]` |
-| Evidence ID | `[Evidence ID]` |
-| Status | Unverified until supporting evidence is reviewed |
 
 **Description:** A scanner alert requires manual review. The actual alert name and technical condition must be copied from the real tool output rather than invented.
 
@@ -360,12 +280,6 @@ Do not label an unverified alert as a confirmed vulnerability. Mark tests that w
 
 ### F-03 — PDF Metadata Review
 
-| Field | Value |
-|---|---|
-| Severity | Informational unless impact is demonstrated |
-| Asset | `[Approved exercise PDF]` |
-| Evidence ID | `[Evidence ID]` |
-| Status | Pending actual metadata review |
 
 **Description:** Review metadata such as Author, Creator, Producer, and dates. These fields may reveal document workflow information, but their presence is not automatically a security vulnerability.
 
@@ -373,12 +287,6 @@ Do not label an unverified alert as a confirmed vulnerability. Mark tests that w
 
 ### F-04 — Sensitive Document Exposure Assessment
 
-| Field | Value |
-|---|---|
-| Severity | Not assigned without evidence |
-| Asset | `[Authorized exercise resource]` |
-| Evidence ID | `[Redacted evidence reference]` |
-| Status | `[Confirmed / Not found / Not tested]` |
 
 **Description:** Assess whether an approved exercise resource exposes information it should protect. Do not claim that patient, employee, or shareholder data was accessed unless authorized evidence establishes that fact.
 
@@ -397,7 +305,7 @@ Use the risk matrix specified by the assignment or organization where one is pro
 | **Informational** | Observation without demonstrated security impact |
 | **Pending validation** | Evidence is insufficient to assign a confirmed rating |
 
-Ratings must be justified by the evidence. Scanner severity should be reviewed, not accepted automatically.
+
 
 ## 🛠️ 12. Remediation Roadmap
 
@@ -410,131 +318,6 @@ Ratings must be justified by the evidence. Scanner severity should be reviewed, 
 | 5 | Protect evidence and report artifacts | Review for credentials and personal data |
 | 6 | Retest confirmed findings | Record the retest date and outcome |
 
-This is a suggested remediation workflow. Final priorities should reflect actual verified findings and the applicable risk matrix.
-
-## 🧾 13. Evidence Handling
-
-### Suggested evidence naming convention
-
-```text
-E-01-zap-alert-details.png
-E-02-response-headers.txt
-E-03-pdf-metadata.txt
-E-04-pdf-encryption.txt
-```
-
-Use identifiers that correspond to the findings register. Store evidence securely and redact personal information before sharing.
-
-### Example commands for approved PDF files
-
-```bash
-mkdir -p ~/mediroza-pentest/logs/m3
-
-exiftool sample.pdf \
-  > ~/mediroza-pentest/logs/m3/sample-metadata.txt
-
-pdfinfo sample.pdf \
-  > ~/mediroza-pentest/logs/m3/sample-properties.txt
-
-qpdf --show-encryption sample.pdf \
-  > ~/mediroza-pentest/logs/m3/sample-encryption.txt 2>&1
-```
-
-Replace `sample.pdf` with the actual approved exercise filename.
-
-Do not commit confidential documents, passwords, tokens, patient data, private employee details, or confidential shareholder information to a public GitHub repository.
-
-## ⚠️ 14. Limitations
-
-- This README is a synthetic training template, not a verified report of live testing.
-- No actual ZAP export or validated web vulnerability evidence is included here.
-- No claim is made that confidential patient, employee, or shareholder information was retrieved.
-- Results from sample PDFs do not establish the security status of real hospital documents.
-- Passive inspection cannot prove the absence of all vulnerabilities.
-- Findings must be updated to reflect tests actually completed within the written authorization.
-- Any unperformed test must be recorded as **Not tested**, not as a successful or failed test.
-
-## ✅ 15. Conclusion
-
-This project presents a structured approach to authorized web application review, PDF metadata and encryption inspection, sensitive-document exposure assessment, and professional reporting.
-
-A final assessment report should be reproducible, evidence-led, and clear about uncertainty. Confirmed findings must be supported by evidence; unverified observations must remain pending validation; and unperformed tests must be documented honestly.
-
-## 📁 16. Repository Layout
-
-```text
-mediroza-pentest/
-├── README.md
-├── screenshots/
-│   └── .gitkeep
-├── logs/
-│   ├── m2/
-│   ├── m3/
-│   └── .gitkeep
-├── lab-pdfs/
-│   └── .gitkeep
-├── notes/
-│   └── .gitkeep
-└── report/
-    └── final-report.md
-```
-
-This is a suggested layout. Only approved, non-confidential evidence should be committed.
-
-## 🧪 17. Reproducing the PDF Checks
-
-### Install tools on Kali Linux
-
-```bash
-sudo apt update
-sudo apt install qpdf poppler-utils exiftool
-```
-
-### Verify installation
-
-```bash
-qpdf --version
-pdfinfo -v
-exiftool -ver
-```
-
-### Inspect an authorized exercise PDF
-
-```bash
-pdfinfo sample.pdf
-exiftool sample.pdf
-qpdf --is-encrypted sample.pdf
-qpdf --show-encryption sample.pdf
-```
-
-Review the output, preserve the relevant evidence, and record only conclusions supported by the results.
-
-## 🤝 18. Responsible Testing
-
-This repository is intended for authorized educational security testing.
-
-- Obtain and follow written authorization.
-- Stay within the approved target and testing methods.
-- Do not access confidential records without explicit authorization.
-- Do not perform denial-of-service or out-of-scope testing.
-- Protect evidence and redact sensitive content.
-- Report verified vulnerabilities through the authorized reporting channel.
-- Do not publish personal or confidential data in GitHub issues, commits, screenshots, or repository files.
-
-## 🧩 19. Final Submission Checklist
-
-- [ ] Replace `[Your Name]` and illustrative dates.
-- [ ] Confirm the actual scope and written authorization.
-- [ ] Add evidence from tests actually performed.
-- [ ] Replace placeholders with observed results.
-- [ ] Remove or clearly label synthetic findings.
-- [ ] Record unperformed tests as **Not tested**.
-- [ ] Ensure every confirmed finding has an evidence reference.
-- [ ] Check all screenshots and logs for sensitive information.
-- [ ] Confirm no confidential documents or credentials are committed.
-- [ ] Update the report status to reflect the actual assessment.
-
----
 
 <div align="center">
 
